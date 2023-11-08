@@ -1,6 +1,5 @@
 function createTodoContainer(paragraphContent) {
   // Create todoContainer div
-  const todoContainerWrapper = document.querySelector("#todoContainerWrapper")
   const todoContainer = document.createElement("div");
   todoContainer.classList.add("todoContainer");
 
@@ -44,7 +43,9 @@ function createTodoContainer(paragraphContent) {
     todoText.focus();
     // Add blur event listener to keep todoText focused
     todoText.addEventListener('blur', function () {
-      setTimeout(() => todoText.focus());
+      if (todoText.contentEditable === "true") {
+        todoText.focus(); // refocus directly without setTimeout
+      }
     });
     // Hide trash and edit button
     editBtn.style.display = "none";
@@ -64,13 +65,12 @@ function createTodoContainer(paragraphContent) {
     newTodo.appendChild(confirmBtn);
     // confirm button functionality
     confirmBtn.addEventListener("click", () => {
+      todoText.onblur = null; // remove the blur event listener
       todoText.contentEditable = "false";
-      todoText.focus();
       confirmBtn.remove();
       cancelBtn.remove();
       editBtn.style.display = "block";
       trashBtn.style.display = "block";
-      todoText.onblur = null;
     });
     // cancel button functionality
     let originalTodoText = todoText.innerText;
@@ -78,7 +78,7 @@ function createTodoContainer(paragraphContent) {
     cancelBtn.addEventListener("click", () => {
       todoText.innerText = originalTodoText;
       todoText.contentEditable = "false";
-      todoText.focus();
+      // todoText.focus();
       confirmBtn.remove();
       cancelBtn.remove();
       editBtn.style.display = "block";
