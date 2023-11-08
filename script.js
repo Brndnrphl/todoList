@@ -16,13 +16,13 @@ function createTodoContainer(paragraphContent) {
   // Create edit button
   const editBtn = document.createElement("img");
   editBtn.classList.add("editBtn");
-  editBtn.src = "edit.png";
+  editBtn.src = "assets/edit.png";
   editBtn.alt = "edit button";
 
   // Create trash button
   const trashBtn = document.createElement("img");
   trashBtn.classList.add("trashBtn");
-  trashBtn.src = "trash.png";
+  trashBtn.src = "assets/trash.png";
   trashBtn.alt = "delete button";
 
   // Append elements
@@ -51,12 +51,12 @@ function createTodoContainer(paragraphContent) {
     trashBtn.style.display = "none";
     // create confirm butotn
     const confirmBtn = document.createElement("img");
-    confirmBtn.src = "checkmark.png"
+    confirmBtn.src = "assets/checkmark.png"
     confirmBtn.alt = "confirm button"
     confirmBtn.classList.add("confirmBtn")
     // create cancel button
     const cancelBtn = document.createElement("img");
-    cancelBtn.src = "cancel.png"
+    cancelBtn.src = "assets/cancel.png"
     cancelBtn.alt = "cancel button"
     cancelBtn.classList.add("cancelBtn")
     // append the cancel and confirm button
