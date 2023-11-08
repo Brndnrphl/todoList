@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Todo List</title>
-  </head>
-  <body>
-    <h1 class="title">Todo List</h1>
-    <form id="todoForm">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Todo List</title>
+</head>
+
+<body>
+  <h1 class="title">Todo List</h1>
+  <form id="todoForm">
+    <div class="inputWrapper">
       <input type="text" id="todoInput" placeholder="Enter new todo..." />
-    </form>
-    <h2 class="currentTodosText">Current Todos</h2>
-    <script src="script.js"></script>
-  </body>
+      <input type="image" src="enter.png" alt="create new todo button" class="enterBtn" />
+    </div>
+  </form>
+  <h2 class="currentTodosText">Current Todos</h2>
+  <div id="todoContainerWrapper"></div>
+  <!-- <div class="todoContainer">
+      <div class="newTodo">
+        <p class="todoText"></p>
+        </p>
+        <img class="editBtn" src="edit.png" alt="edit button" />
+        <img class="trashBtn" src="trash.png" alt="delete button" />
+      </div>
+    </div> -->
+  <script src="script.js"></script>
+</body>
+
 </html>
