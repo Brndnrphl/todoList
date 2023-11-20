@@ -132,6 +132,11 @@ h1,
   padding-right: 10px;
 }
 
+.timestamp {
+  font-size: 10px;
+  color: #f2f7ff7c;
+}
+
 .enterBtn {
   position: absolute;
   right: 10px;

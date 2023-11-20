@@ -24,10 +24,17 @@ function createTodoContainer(paragraphContent) {
   trashBtn.src = "assets/trash.png";
   trashBtn.alt = "delete button";
 
+  // Create timestamp
+  const timestamp = document.createElement("p");
+  timestamp.classList.add("timestamp");
+  const date = new Date();
+  timestamp.innerText = `Created on ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
+
   // Append elements
   newTodo.appendChild(todoText);
   newTodo.appendChild(editBtn);
   newTodo.appendChild(trashBtn);
+  newTodo.appendChild(timestamp);
   todoContainer.appendChild(newTodo);
 
   // Trash Button functionality
@@ -42,7 +49,7 @@ function createTodoContainer(paragraphContent) {
     todoText.contentEditable = "true";
     todoText.focus();
     // Add blur event listener to keep todoText focused
-    todoText.addEventListener('blur', function () {
+    todoText.addEventListener("blur", function () {
       if (todoText.contentEditable === "true") {
         todoText.focus(); // refocus directly without setTimeout
       }
@@ -52,14 +59,14 @@ function createTodoContainer(paragraphContent) {
     trashBtn.style.display = "none";
     // create confirm butotn
     const confirmBtn = document.createElement("img");
-    confirmBtn.src = "assets/checkmark.png"
-    confirmBtn.alt = "confirm button"
-    confirmBtn.classList.add("confirmBtn")
+    confirmBtn.src = "assets/checkmark.png";
+    confirmBtn.alt = "confirm button";
+    confirmBtn.classList.add("confirmBtn");
     // create cancel button
     const cancelBtn = document.createElement("img");
-    cancelBtn.src = "assets/cancel.png"
-    cancelBtn.alt = "cancel button"
-    cancelBtn.classList.add("cancelBtn")
+    cancelBtn.src = "assets/cancel.png";
+    cancelBtn.alt = "cancel button";
+    cancelBtn.classList.add("cancelBtn");
     // append the cancel and confirm button
     newTodo.appendChild(cancelBtn);
     newTodo.appendChild(confirmBtn);
@@ -90,11 +97,10 @@ function createTodoContainer(paragraphContent) {
   return todoContainer;
 }
 
-
 // create new todo event listener
 const todoForm = document.querySelector("#todoForm");
 const todoInput = document.querySelector("#todoInput");
-let todoContainerWrapper = document.querySelector('#todoContainerWrapper');
+let todoContainerWrapper = document.querySelector("#todoContainerWrapper");
 todoForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
